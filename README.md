@@ -43,13 +43,9 @@
 
 ### [Trello](https://trello.com/b/ysnM09up/interview-hackathon)
 
-### ERD
+### CHD
 
-![image]()
-
-### Component Hierarchy Diagram
-
-![image]()
+![component heirarchy diagram](/images/Screen%20Shot%202022-11-20%20at%202.37.16%20PM.png)
 
 ---
 
