@@ -1,7 +1,5 @@
 # Interview-Frontend
 
-# Interview-Backend
-
 ## Date: 11/20/22
 
 ![image](<https://gray-wwbt-prod.cdn.arcpublishing.com/resizer/970m8Zaq4srq_RSwIbeswnRUPoE=/1200x675/smart/filters:quality(85)/cloudfront-us-east-1.images.arcpublishing.com/gray/TOF2KUTYEVEPRIRLQCNRMEJ75A.jpg>)
