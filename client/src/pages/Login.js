@@ -4,9 +4,6 @@ import { useNavigate, Link } from 'react-router-dom'
 import { SignInUser } from '../services/Auth'
 
 const Login = ({ toggleAuthenticated, setUser }) => {
-  let loginWindow = document.getElementById('login-container')
-  let registerWindow = document.getElementById('register-container')
-
   const navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
@@ -20,15 +17,6 @@ const Login = ({ toggleAuthenticated, setUser }) => {
     setUser(payload)
     toggleAuthenticated(true)
     navigate('/')
-  }
-  const showWindowSwap = () => {
-    if (loginWindow.style.visibility === 'hidden') {
-      loginWindow.style.visibility = 'visible'
-      registerWindow.style.visibility = 'hidden'
-    } else {
-      loginWindow.style.visibility = 'hidden'
-      registerWindow.style.visibility = 'visible'
-    }
   }
   return (
     <div className="login-container" id="login-container">
