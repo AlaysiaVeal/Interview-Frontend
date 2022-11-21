@@ -1,0 +1,20 @@
+{
+  "name": "interview-frontend",
+  "version": "1.0.0",
+  "description": "## Date: 11/20/22",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlaysiaVeal/Interview-Frontend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlaysiaVeal/Interview-Frontend/issues"
+  },
+  "homepage": "https://github.com/AlaysiaVeal/Interview-Frontend#readme"
+}
