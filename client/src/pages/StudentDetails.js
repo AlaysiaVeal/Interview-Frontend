@@ -6,26 +6,29 @@ import { Link } from 'react-router-dom'
 import StudentCard from '../components/StudentCard'
 import Client from '../services/api'
 
-const StudentDetails = ({ user }) => {
+const StudentDetails = ({ id }) => {
   const { studentId } = useParams()
-  const [students, setStudents] = useState(' ')
+  const [students, setStudents] = useState({})
 
   const getStudents = useCallback(async () => {
-    const response = await Client.get(`/students`)
-    setStudents(response.data)
-  }, [studentId])
+    const response = await Client.get(`/students/details/${studentId}`)
+    setStudents(response.data[0])
+    console.log(response.data)
+  }, [])
 
   useEffect(() => {
-    getStudent()
-  }, [getStudents, user])
+    getStudents()
+  }, [])
 
-  return students !== null ? (
-    <div className="student-details-container">
+  return students(
+    /*  !== null ? */ <div className="student-details-container">
       <section>
-        <div className="studentDetails" key={students.id} id={students.id}>
-          <h2 className="student-details-title"> {students.name} </h2>
-          <h3 className="student-details-text"> {students.grade} </h3>
-        </div>
+        {students?.map((student) => (
+          <div className="studentDetails" key={student.id} id={student.id}>
+            <h2 className="student-details-title"> {student?.name} </h2>
+            <h3 className="student-details-text"> {student?.letter} </h3>
+          </div>
+        ))}
       </section>
       <h1>Course Info</h1>
       <section>
@@ -34,7 +37,7 @@ const StudentDetails = ({ user }) => {
             id={student?.id}
             key={student?.id}
             studentName={student?.name}
-            grade={student?.grade}
+            grade={student?.letter}
           />
         ))}
       </section>
@@ -42,7 +45,7 @@ const StudentDetails = ({ user }) => {
         <button className="add-student-button">Add A Student</button>
       </Link>
     </div>
-  ) : null
+  ) /* : null */
 }
 
 export default StudentDetails
