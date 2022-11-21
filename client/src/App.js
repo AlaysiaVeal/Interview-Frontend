@@ -7,6 +7,8 @@ import CourseDetails from './pages/CourseDetails'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
+import StudentCard from './components/StudentCard'
+import StudentDetails from './pages/StudentDetails'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -49,6 +51,11 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/courses" element={<CourseDetails user={user} />} />
+          <Route path="/students" element={<StudentCard />} />
+          <Route
+            path="/students/details/:student_id"
+            element={<StudentDetails />}
+          />
         </Routes>
       </header>
     </div>
