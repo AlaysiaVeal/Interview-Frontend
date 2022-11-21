@@ -15,6 +15,7 @@ const App = () => {
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
+    toggleAuthenticated(true)
   }
 
   const handleLogOut = () => {
@@ -33,11 +34,18 @@ const App = () => {
   return (
     <div>
       <div className="nav-container">
-        <Nav user={user} handleLogOut={handleLogOut} />
+        <Nav
+          user={user}
+          handleLogOut={handleLogOut}
+          authenticated={authenticated}
+        />
       </div>
       <header className="App-header">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route
+            index
+            element={<Home user={user} authenticated={authenticated} />}
+          />
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/courses" element={<CourseDetails user={user} />} />

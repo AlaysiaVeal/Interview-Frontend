@@ -36,3 +36,13 @@
     transform: rotate(360deg);
   }
 }
+
+.school-logo {
+  height: 30px;
+  width: 30px;
+}
+
+Nav {
+  display: flex;
+  flex-direction: column;
+}

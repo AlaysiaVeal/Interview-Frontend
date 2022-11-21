@@ -5,8 +5,7 @@ import { RegisterUser } from '../services/Auth'
 
 const Register = () => {
   const initialState = {
-    firstName: '',
-    lastName: '',
+    username: '',
     email: '',
     password: '',
     confirmPassword: ''
@@ -38,36 +37,7 @@ const Register = () => {
   return (
     <div className="register-container">
       <form className="form-items" onSubmit={handleSubmit}>
-        <section className="section-container top-section">
-          <div className="field-container">
-            <div className="field-text">
-              <label htmlFor="firstName">First Name:</label>
-            </div>
-            <input
-              onChange={handleChange}
-              name="firstName"
-              type="text"
-              placeholder="First Name"
-              value={formValues.firstName}
-              className="text-input"
-              required
-            />
-          </div>
-          <div className="field-container">
-            <div className="field-text">
-              <label htmlFor="lastName">Last Name: </label>
-            </div>
-            <input
-              onChange={handleChange}
-              name="lastName"
-              type="text"
-              placeholder="Last Name"
-              value={formValues.lastName}
-              className="text-input"
-              required
-            />
-          </div>
-        </section>
+        <section className="section-container top-section"></section>
         <section className="section-container">
           <div className="field-container">
             <div className="field-text">

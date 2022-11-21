@@ -8,11 +8,12 @@ import Client from '../services/api'
 
 const CourseDetails = ({ user }) => {
   const { courseId } = useParams()
-  const [courses, setCourses] = useState(' ')
+  const [courses, setCourses] = useState([])
 
   const getCourse = useCallback(async () => {
-    // const response = await Client.get(``)
-    // setCourses(response.data)
+    const response = await Client.get(`/course`)
+    console.log(response.data)
+    setCourses(response.data)
   }, [courseId])
 
   useEffect(() => {
