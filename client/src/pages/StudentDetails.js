@@ -11,7 +11,7 @@ const StudentDetails = ({ user }) => {
   const [students, setStudents] = useState(' ')
 
   const getStudents = useCallback(async () => {
-    const response = await Client.get(``)
+    // const response = await Client.get(``)
     setStudent(response.data)
   }, [studentId])
 

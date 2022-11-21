@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import Client from '../services/api'
 
-const NewStudentForm = ({ user }) => {
-  const formValues = {}
+const NewStudentForm = ({ user, authenticated }) => {
+  const formValues = {
+    name: '',
+    courses: []
+  }
 
   const [studentFormValues, setStudentFormValues] = useState(formValues)
 
@@ -24,15 +27,15 @@ const NewStudentForm = ({ user }) => {
     })
   }
 
-  return (
+  return user && authenticated ? (
     <div className="mainroom-container">
       <form className="form-container" onSubmit={submitHandleClick}>
         <h4 className="roomform-text">-Add New Student-</h4>
         <select
-          className="room-plant-input"
+          className="course-input"
           onChange={handleChange}
-          name="roomId"
-          value={studentFormValues.roomId}
+          name="courseId"
+          value={studentFormValues.classId}
           required
         >
           <option value="" disabled>
@@ -45,18 +48,7 @@ const NewStudentForm = ({ user }) => {
           ))}
         </select>
         <input
-          className="room-plant-input"
-          onChange={handleChange}
-          type="text"
-          src="./uploadimage.png"
-          value={studentFormValues.image}
-          placeholder="image url"
-          id="image-input"
-          name="image"
-        />
-
-        <input
-          className="room-plant-input"
+          className="student-input"
           type="text"
           onChange={handleChange}
           value={studentFormValues.name}
@@ -67,7 +59,7 @@ const NewStudentForm = ({ user }) => {
         />
 
         <textarea
-          className="room-plant-input"
+          className="student-input"
           onChange={handleChange}
           type="text"
           value={studentFormValues.details}
@@ -77,6 +69,12 @@ const NewStudentForm = ({ user }) => {
         ></textarea>
         <button className="roomform-submitbtn">Submit</button>
       </form>
+    </div>
+  ) : (
+    <div className="protected">
+      <h3>Oops! You must be logged in to have access to the community!</h3>
+
+      <button onClick={() => navigate('/login')}>Login</button>
     </div>
   )
 }

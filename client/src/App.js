@@ -1,6 +1,12 @@
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
+import { useState, useEffect } from 'react'
+import { CheckSession } from './services/Auth'
+import CourseDetails from './pages/CourseDetails'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Home from './pages/Home'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -31,7 +37,10 @@ const App = () => {
       </div>
       <header className="App-header">
         <Routes>
-          <Route path="/:course_id" element={<CourseDetails user={user} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/courses" element={<CourseDetails user={user} />} />
         </Routes>
       </header>
     </div>
