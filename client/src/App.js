@@ -4,11 +4,13 @@ import Nav from './components/Nav'
 import { useState, useEffect } from 'react'
 import { CheckSession } from './services/Auth'
 import CourseDetails from './pages/CourseDetails'
+import CourseInfo from './pages/CourseInfo'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import StudentCard from './components/StudentCard'
 import StudentDetails from './pages/StudentDetails'
+import GradeInfo from './pages/GradeInfo'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -51,11 +53,13 @@ const App = () => {
           <Route path="/login" element={<Login setUser={setUser} />} />
           <Route path="/register" element={<Register />} />
           <Route path="/courses" element={<CourseDetails user={user} />} />
-          <Route path="/students" element={<StudentCard />} />
           <Route
-            path="/students/details/:student_id"
-            element={<StudentDetails />}
+            path="/course/details/:course_id"
+            element={<CourseInfo user={user} />}
           />
+          <Route path="/students" element={<StudentCard />} />
+          <Route path="/students/details/:student_id" element={<GradeInfo />} />
+          {/* <Route path="/grade/:student_id" element={<GradeInfo />} /> */}
         </Routes>
       </header>
     </div>

@@ -26,7 +26,7 @@ const StudentDetails = ({ id }) => {
         {students?.map((student) => (
           <div className="studentDetails" key={student.id} id={student.id}>
             <h2 className="student-details-title"> {student?.name} </h2>
-            <h3 className="student-details-text"> {student?.letter} </h3>
+            <h3 className="student-details-text"> {student?.email} </h3>
           </div>
         ))}
       </section>

@@ -3,10 +3,10 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
-import CourseCard from '../components/CourseCard'
+import CourseDetails from '../components/CourseDetails'
 import Client from '../services/api'
 
-const CourseDetails = ({ user }) => {
+const CourseCard = ({ user }) => {
   const { courseId } = useParams()
   const [courses, setCourses] = useState([])
 
@@ -31,8 +31,8 @@ const CourseDetails = ({ user }) => {
       <h1>Course Info</h1>
       <section>
         {courses?.map((course) => (
-          <Link to={`/course/details/${course?.id}`} key={course?.id}>
-            <CourseCard
+          <Link to={`/course/details/${course.id}`} key={course.id}>
+            <CourseDetails
               id={course?.id}
               key={course?.id}
               courseName={course?.name}
@@ -40,11 +40,11 @@ const CourseDetails = ({ user }) => {
           </Link>
         ))}
       </section>
-      <Link type="button" to={``}>
+      <Link type="button" to={`/course/add_new_course`}>
         <button className="add-course-button">Add A Course</button>
       </Link>
     </div>
   ) : null
 }
 
-export default CourseDetails
+export default CourseCard

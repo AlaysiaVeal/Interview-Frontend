@@ -16,7 +16,7 @@ const StudentCard = ({id, student }) => {
   return (
     <div>
       {students.map((student)=>(
-        <Link to={`/students/details/${student.id}`}>
+        <Link to={`/students/details/${student.id}`} key={student.id}>
     <div className='student-card' key={student.id}>
       <h2 id="student-name">{student.name}</h2> 
     </div>
