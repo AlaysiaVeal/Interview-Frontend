@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import Client from '../services/api'
+import { useNavigate } from 'react-router-dom'
 
 const NewCourseForm = ({ user, authenticated }) => {
+  let navigate = useNavigate()
   const formValues = {
     name: '',
-    desciption: ''
+    description: ''
   }
 
   const [courseFormValues, setCourseFormValues] = useState(formValues)
@@ -12,8 +14,9 @@ const NewCourseForm = ({ user, authenticated }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      await Client.post('/', { courseFormValues })
-      setStudentFormValues(formValues)
+      await Client.post('/course/', courseFormValues)
+      setCourseFormValues(formValues)
+      navigate('/courses')
     } catch (error) {
       throw error
     }
@@ -22,37 +25,37 @@ const NewCourseForm = ({ user, authenticated }) => {
   const handleChange = (e) => {
     setCourseFormValues({
       ...courseFormValues,
-      [e.target.name]: e.target.value,
-      userId: user.id
+      [e.target.name]: e.target.value
+      // userId: user.id
     })
   }
-
-  return user && authenticated ? (
+  // user && authenticated ?
+  return (
     <div className="mainroom-container">
       <form className="form-container" onSubmit={submitHandleClick}>
-        <h4 className="roomform-text">-Add New Course-</h4>
-        <select
+        <h3 className="roomform-text">Add New Course</h3>
+        <label
           className="course-input"
           onChange={handleChange}
           name="courseId"
           value={courseFormValues.courseId}
           required
         >
-          <option value="" disabled>
+          {/* <option value="" disabled>
             - Select Room -
           </option>
           {roomList.map((room) => (
             <option name="roomId" value={room.id} key={room.id}>
               {room.name}
-            </option>
-          ))}
-        </select>
+            </option> */}
+          {/* ))} */}
+        </label>
         <input
           className="student-input"
           type="text"
           onChange={handleChange}
           value={courseFormValues.name}
-          placeholder="Course name (required)"
+          placeholder="Course name"
           id="coursename-input"
           name="name"
           required
@@ -62,7 +65,7 @@ const NewCourseForm = ({ user, authenticated }) => {
           className="student-input"
           onChange={handleChange}
           type="text"
-          value={courseFormValues.desciption}
+          value={courseFormValues.description}
           placeholder="course description"
           id="description-input"
           name="description"
@@ -70,13 +73,14 @@ const NewCourseForm = ({ user, authenticated }) => {
         <button className="roomform-submitbtn">Submit</button>
       </form>
     </div>
-  ) : (
-    <div className="protected">
-      <h3>Oops! You must be logged in to have access to the community!</h3>
-
-      <button onClick={() => navigate('/login')}>Login</button>
-    </div>
   )
+  // : (
+  //   <div className="protected">
+  //     <h3>Oops! You must be logged in to have access to the community!</h3>
+
+  //     <button onClick={() => navigate('/login')}>Login</button>
+  //   </div>
+  // )
 }
 
-export default NewStudentForm
+export default NewCourseForm

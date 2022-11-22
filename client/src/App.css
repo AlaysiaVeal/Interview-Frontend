@@ -7,15 +7,34 @@
   pointer-events: none;
 }
 
+/* body {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-gap: 5px;
+  align-content: space-between;
+  align-items: stretch;
+  padding: 10px;
+} */
+
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+}
+.wrapper {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-gap: 5px;
+  align-content: space-between;
+  align-items: stretch;
+  padding: 10px;
+  color: white;
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: black;
   min-height: 100vh;
+  grid-column-start: 2;
+  grid-column-end: 6;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,21 +47,63 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .school-logo {
   height: 30px;
   width: 30px;
 }
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+.nav {
+  display: flex;
+  flex-direction: column;
+}
 
 Nav {
   display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+.course-details-container {
+  color: white;
+}
+
+.student-details-container {
+  color: white;
+}
+
+.studentDetails {
+  color: white;
+}
+/* Nav {
+  display: flex;
   flex-direction: column;
+} */
+
+.student-link:hover {
+  cursor: pointer;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.search-input {
+  display: flex;
+  padding: 30px;
+  font-size: 30px;
+}
+
+.search-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
 }
