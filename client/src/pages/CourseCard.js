@@ -1,7 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect, useCallback } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CourseDetails from '../components/CourseDetails'
 import Client from '../services/api'
@@ -40,7 +39,7 @@ const CourseCard = ({ user }) => {
           </Link>
         ))}
       </section>
-      <Link type="button" to={`/course/add_new_course`}>
+      <Link type="button" to={`/courses/add_new_course`}>
         <button className="add-course-button">Add A Course</button>
       </Link>
     </div>

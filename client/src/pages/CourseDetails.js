@@ -12,7 +12,6 @@ const CourseDetails = ({ user }) => {
 
   const getCourse = useCallback(async () => {
     const response = await Client.get(`/course`)
-    console.log(response.data)
     setCourses(response.data)
   }, [courseId])
 
@@ -40,7 +39,7 @@ const CourseDetails = ({ user }) => {
           </Link>
         ))}
       </section>
-      <Link type="button" to={``}>
+      <Link type="button" to={`/courses/new_course_form`}>
         <button className="add-course-button">Add A Course</button>
       </Link>
     </div>

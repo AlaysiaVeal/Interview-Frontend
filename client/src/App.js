@@ -9,8 +9,10 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import StudentCard from './components/StudentCard'
-import StudentDetails from './pages/StudentDetails'
-import GradeInfo from './pages/GradeInfo'
+import Search from './pages/Search'
+import StudentInfo from './pages/StudentInfo'
+import NewCourseForm from './pages/NewCourseForm'
+import NewStudentForm from './pages/NewStudentForm'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -50,15 +52,32 @@ const App = () => {
             index
             element={<Home user={user} authenticated={authenticated} />}
           />
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route
+            path="/login"
+            element={
+              <Login
+                setUser={setUser}
+                toggleAuthenticated={toggleAuthenticated}
+              />
+            }
+          />
+          <Route path="/search" element={<Search />} />
           <Route path="/register" element={<Register />} />
           <Route path="/courses" element={<CourseDetails user={user} />} />
           <Route
             path="/course/details/:course_id"
             element={<CourseInfo user={user} />}
           />
+          <Route path="/courses/new_course_form" element={<NewCourseForm />} />
           <Route path="/students" element={<StudentCard />} />
-          <Route path="/students/details/:student_id" element={<GradeInfo />} />
+          <Route
+            path="/students/new_student_form"
+            element={<NewStudentForm />}
+          />
+          <Route
+            path="/students/details/:student_id"
+            element={<StudentInfo />}
+          />
           {/* <Route path="/grade/:student_id" element={<GradeInfo />} /> */}
         </Routes>
       </header>
