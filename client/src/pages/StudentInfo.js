@@ -4,6 +4,7 @@ import Client from '../services/api'
 import { Link } from 'react-router-dom'
 
 const StudentInfo = ({ user }) => {
+  /*  const BASE_URL =  'https://admin--app.herokuapp.com/api' */
   let { student_id } = useParams()
 
   const [student, setStudent] = useState({})
