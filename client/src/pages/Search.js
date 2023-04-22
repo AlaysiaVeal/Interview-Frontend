@@ -4,6 +4,7 @@ import StudentCard from '../components/StudentCard'
 import { Link } from 'react-router-dom'
 
 const Search = () => {
+  const BASE_URL = ' https://admin--app-backend.herokuapp.com/api'
   const [students, setStudents] = useState([])
   const [query, setQuery] = useState('')
 
@@ -32,7 +33,9 @@ const Search = () => {
         <section>
           {filteredList?.map((student) => (
             <div>
-              <Link to={`/students/details/${student.id}`}>{student.name}</Link>
+              <Link to={`${BASE_URL}/students/details/${student.id}`}>
+                {student.name}
+              </Link>
               {/* <StudentCard
                 id={student?.id}
                 key={student?.id}

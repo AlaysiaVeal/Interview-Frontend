@@ -7,6 +7,7 @@ import CourseCard from '../components/CourseCard'
 import Client from '../services/api'
 
 const CourseDetails = ({ user }) => {
+  const BASE_URL = ' https://admin--app-backend.herokuapp.com/api'
   const { courseId } = useParams()
   const [courses, setCourses] = useState([])
 
@@ -30,7 +31,10 @@ const CourseDetails = ({ user }) => {
       <h1>Course Info</h1>
       <section>
         {courses?.map((course) => (
-          <Link to={`/course/details/${course?.id}`} key={course?.id}>
+          <Link
+            to={`${BASE_URL}/course/details/${course?.id}`}
+            key={course?.id}
+          >
             <CourseCard
               id={course?.id}
               key={course?.id}
@@ -39,7 +43,7 @@ const CourseDetails = ({ user }) => {
           </Link>
         ))}
       </section>
-      <Link type="button" to={`/courses/new_course_form`}>
+      <Link type="button" to={`${BASE_URL}/courses/new_course_form`}>
         <button className="add-course-button">Add A Course</button>
       </Link>
     </div>

@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { RegisterUser } from '../services/Auth'
 
 const Register = () => {
+  const BASE_URL = ' https://admin--app-backend.herokuapp.com/api'
   const initialState = {
     username: '',
     email: '',
@@ -31,7 +32,7 @@ const Register = () => {
 
     setFormValues(initialState)
 
-    navigate('/login')
+    navigate(`${BASE_URL}/login`)
   }
 
   return (
@@ -113,7 +114,7 @@ const Register = () => {
           >
             Submit
           </button>
-          <Link to="/login">
+          <Link to={`${BASE_URL}/login`}>
             <h3>Login Here</h3>
           </Link>
         </div>

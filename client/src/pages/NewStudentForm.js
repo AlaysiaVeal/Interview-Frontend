@@ -3,6 +3,7 @@ import Client from '../services/api'
 import { useNavigate } from 'react-router-dom'
 
 const NewStudentForm = ({ user, authenticated }) => {
+  const BASE_URL = ' https://admin--app-backend.herokuapp.com/api'
   const navigate = useNavigate()
   const formValues = {
     name: '',
@@ -19,7 +20,7 @@ const NewStudentForm = ({ user, authenticated }) => {
     try {
       await Client.post('/students/', studentFormValues)
       setStudentFormValues(formValues)
-      navigate('/students')
+      navigate(`${BASE_URL}/students`)
     } catch (error) {
       throw error
     }

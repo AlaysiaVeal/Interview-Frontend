@@ -1,10 +1,11 @@
 const Home = () => {
   return (
     <div>
-      <img
+      <h1></h1>
+      {/* <img
         src={`https://www.educationcorner.com/images/featured-classroom-design-layout.jpg`}
         alt={`classroom`}
-      ></img>
+      ></img> */}
     </div>
   )
 }
